@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7ADADADB1EEEEFC600537DB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADAD91EEEEFC600537DB4 /* Bolts.framework */; };
+		7ADADADC1EEEEFC600537DB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADADA1EEEEFC600537DB4 /* Parse.framework */; };
+		7ADADADF1EEEEFD800537DB4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */; };
+		7ADADAE11EEEEFE300537DB4 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADAE01EEEEFE300537DB4 /* libstdc++.6.tbd */; };
+		7ADADAE31EEEEFFA00537DB4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADAE21EEEEFFA00537DB4 /* SystemConfiguration.framework */; };
+		7ADADAE51EEEF00400537DB4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADAE41EEEF00400537DB4 /* libsqlite3.tbd */; };
 		7AE6C3271EEEEE41008922E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6C3261EEEEE41008922E3 /* AppDelegate.swift */; };
 		7AE6C3291EEEEE41008922E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6C3281EEEEE41008922E3 /* ViewController.swift */; };
 		7AE6C32C1EEEEE41008922E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6C32A1EEEEE41008922E3 /* Main.storyboard */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7ADADAD91EEEEFC600537DB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7ADADADA1EEEEFC600537DB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7ADADAE01EEEEFE300537DB4 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		7ADADAE21EEEEFFA00537DB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7ADADAE41EEEF00400537DB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7AE6C3231EEEEE41008922E3 /* Wegen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wegen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE6C3261EEEEE41008922E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AE6C3281EEEEE41008922E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +41,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ADADAE11EEEEFE300537DB4 /* libstdc++.6.tbd in Frameworks */,
+				7ADADAE31EEEEFFA00537DB4 /* SystemConfiguration.framework in Frameworks */,
+				7ADADADF1EEEEFD800537DB4 /* AudioToolbox.framework in Frameworks */,
+				7ADADAE51EEEF00400537DB4 /* libsqlite3.tbd in Frameworks */,
+				7ADADADC1EEEEFC600537DB4 /* Parse.framework in Frameworks */,
+				7ADADADB1EEEEFC600537DB4 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7ADADADD1EEEEFD800537DB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ADADAE41EEEF00400537DB4 /* libsqlite3.tbd */,
+				7ADADAE21EEEEFFA00537DB4 /* SystemConfiguration.framework */,
+				7ADADAE01EEEEFE300537DB4 /* libstdc++.6.tbd */,
+				7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7AE6C31A1EEEEE41008922E3 = {
 			isa = PBXGroup;
 			children = (
 				7AE6C3251EEEEE41008922E3 /* Wegen */,
 				7AE6C3241EEEEE41008922E3 /* Products */,
+				7ADADADD1EEEEFD800537DB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +87,8 @@
 				7AE6C3261EEEEE41008922E3 /* AppDelegate.swift */,
 				7AE6C3281EEEEE41008922E3 /* ViewController.swift */,
 				7AE6C32A1EEEEE41008922E3 /* Main.storyboard */,
+				7ADADAD91EEEEFC600537DB4 /* Bolts.framework */,
+				7ADADADA1EEEEFC600537DB4 /* Parse.framework */,
 				7AE6C32D1EEEEE41008922E3 /* Assets.xcassets */,
 				7AE6C32F1EEEEE41008922E3 /* LaunchScreen.storyboard */,
 				7AE6C3321EEEEE41008922E3 /* Info.plist */,
@@ -262,6 +294,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K9KEJDHY56;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Wegen",
+				);
 				INFOPLIST_FILE = Wegen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Maranville-Designs.Wegen";
@@ -275,6 +311,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K9KEJDHY56;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Wegen",
+				);
 				INFOPLIST_FILE = Wegen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Maranville-Designs.Wegen";
@@ -302,6 +342,7 @@
 				7AE6C3371EEEEE41008922E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
