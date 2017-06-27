@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A1AA6041F01B5B800E8BC63 /* RiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AA6031F01B5B800E8BC63 /* RiderViewController.swift */; };
 		7ADADADB1EEEEFC600537DB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADAD91EEEEFC600537DB4 /* Bolts.framework */; };
 		7ADADADC1EEEEFC600537DB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADADA1EEEEFC600537DB4 /* Parse.framework */; };
 		7ADADADF1EEEEFD800537DB4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A1AA6031F01B5B800E8BC63 /* RiderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderViewController.swift; sourceTree = "<group>"; };
 		7ADADAD91EEEEFC600537DB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7ADADADA1EEEEFC600537DB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -86,6 +88,7 @@
 			children = (
 				7AE6C3261EEEEE41008922E3 /* AppDelegate.swift */,
 				7AE6C3281EEEEE41008922E3 /* ViewController.swift */,
+				7A1AA6031F01B5B800E8BC63 /* RiderViewController.swift */,
 				7AE6C32A1EEEEE41008922E3 /* Main.storyboard */,
 				7ADADAD91EEEEFC600537DB4 /* Bolts.framework */,
 				7ADADADA1EEEEFC600537DB4 /* Parse.framework */,
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE6C3291EEEEE41008922E3 /* ViewController.swift in Sources */,
+				7A1AA6041F01B5B800E8BC63 /* RiderViewController.swift in Sources */,
 				7AE6C3271EEEEE41008922E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
