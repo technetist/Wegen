@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A1AA6041F01B5B800E8BC63 /* RiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AA6031F01B5B800E8BC63 /* RiderViewController.swift */; };
+		7AB8DCA51F071BF4001D6991 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8DCA41F071BF4001D6991 /* DriverViewController.swift */; };
+		7AB8DCA71F0980CD001D6991 /* RiderLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8DCA61F0980CD001D6991 /* RiderLocationViewController.swift */; };
 		7ADADADB1EEEEFC600537DB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADAD91EEEEFC600537DB4 /* Bolts.framework */; };
 		7ADADADC1EEEEFC600537DB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADADA1EEEEFC600537DB4 /* Parse.framework */; };
 		7ADADADF1EEEEFD800537DB4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		7A1AA6031F01B5B800E8BC63 /* RiderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderViewController.swift; sourceTree = "<group>"; };
+		7AB8DCA41F071BF4001D6991 /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		7AB8DCA61F0980CD001D6991 /* RiderLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderLocationViewController.swift; sourceTree = "<group>"; };
 		7ADADAD91EEEEFC600537DB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7ADADADA1EEEEFC600537DB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7ADADADE1EEEEFD800537DB4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -89,7 +93,9 @@
 				7AE6C3261EEEEE41008922E3 /* AppDelegate.swift */,
 				7AE6C3281EEEEE41008922E3 /* ViewController.swift */,
 				7A1AA6031F01B5B800E8BC63 /* RiderViewController.swift */,
+				7AB8DCA41F071BF4001D6991 /* DriverViewController.swift */,
 				7AE6C32A1EEEEE41008922E3 /* Main.storyboard */,
+				7AB8DCA61F0980CD001D6991 /* RiderLocationViewController.swift */,
 				7ADADAD91EEEEFC600537DB4 /* Bolts.framework */,
 				7ADADADA1EEEEFC600537DB4 /* Parse.framework */,
 				7AE6C32D1EEEEE41008922E3 /* Assets.xcassets */,
@@ -172,9 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AB8DCA51F071BF4001D6991 /* DriverViewController.swift in Sources */,
 				7AE6C3291EEEEE41008922E3 /* ViewController.swift in Sources */,
 				7A1AA6041F01B5B800E8BC63 /* RiderViewController.swift in Sources */,
 				7AE6C3271EEEEE41008922E3 /* AppDelegate.swift in Sources */,
+				7AB8DCA71F0980CD001D6991 /* RiderLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

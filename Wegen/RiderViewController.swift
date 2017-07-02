@@ -89,10 +89,11 @@ class RiderViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         query.findObjectsInBackground(block: { (objects, error) in
             if error != nil {
                 print(error!)
-            } else if let riderRequests = objects {
-                self.riderRequestActive = true
-                self.btnCallCar.setTitle("Cancel Request", for: [])
-                
+            } else if let objects = objects {
+                if objects.count > 0 {
+                    self.riderRequestActive = true
+                    self.btnCallCar.setTitle("Cancel Request", for: [])
+                }
             }
             
             self.btnCallCar.isHidden = false
