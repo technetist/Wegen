@@ -20,6 +20,7 @@ class RiderViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         self.present(alert, animated: true, completion: nil)
     }
 
+    var driverOnTheWay = false
     
     var locationManager = CLLocationManager()
     
@@ -104,15 +105,19 @@ class RiderViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location?.coordinate {
             userLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.map.setRegion(region, animated: true)
             
-            self.map.removeAnnotations(self.map.annotations)
+            if driverOnTheWay == false {
             
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = userLocation
-            annotation.title = "Your Location"
-            self.map.addAnnotation(annotation)
+                let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                self.map.setRegion(region, animated: true)
+            
+                self.map.removeAnnotations(self.map.annotations)
+            
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = userLocation
+                annotation.title = "Your Location"
+                self.map.addAnnotation(annotation)
+            }
             if PFUser.current() != nil {
                 let query = PFQuery(className: "RiderRequest")
                 query.whereKey("username", equalTo: (PFUser.current()?.username)!)
@@ -127,7 +132,59 @@ class RiderViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                     }
                 })
             }
+            
         }
+        if riderRequestActive {
+            let query = PFQuery(className: "RiderRequest")
+            query.whereKey("username", equalTo: (PFUser.current()?.username)!)
+            query.findObjectsInBackground(block: { (objects, error) in
+                if error != nil {
+                    print (error!)
+                } else if let riderRequests = objects {
+                    for riderRequest in riderRequests {
+                        if let driverUsername = riderRequest["driverResponded"] {
+                            let query = PFQuery(className: "DriverLocation")
+                            query.whereKey("username", equalTo: driverUsername)
+                            query.findObjectsInBackground(block: { (objects, error) in
+                                if error != nil {
+                                    print(error!)
+                                } else if let driverLocations = objects {
+                                    for driverLocationObject in driverLocations {
+                                        if let driverLocation = driverLocationObject["location"] as? PFGeoPoint {
+                                            self.driverOnTheWay = true
+                                            
+                                            let driverCLLocation = CLLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude)
+                                            let riderCLLocation = CLLocation(latitude: self.userLocation.latitude, longitude: self.userLocation.longitude)
+                                            let distance = riderCLLocation.distance(from: driverCLLocation) / 1000
+                                            let roundedDistance = round(distance * 100) / 100
+                                            self.btnCallCar.setTitle("Driver is \(roundedDistance)km away", for: [])
+                                            
+                                            let latDelta = abs(driverLocation.latitude - self.userLocation.latitude) * 2 + 0.005
+                                            let lonDelta = abs(driverLocation.longitude - self.userLocation.longitude) * 2 + 0.005
+                                            let region = MKCoordinateRegion(center: self.userLocation, span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
+                                            
+                                            self.map.removeAnnotations(self.map.annotations)
+                                            self.map.setRegion(region, animated: true)
+                                            
+                                            let userLocationAnnotation = MKPointAnnotation()
+                                            userLocationAnnotation.coordinate = self.userLocation
+                                            userLocationAnnotation.title = "Your Location"
+                                            self.map.addAnnotation(userLocationAnnotation)
+                                            
+                                            let driverLocationAnnotation = MKPointAnnotation()
+                                            driverLocationAnnotation.coordinate = CLLocationCoordinate2D(latitude: driverLocation.latitude, longitude: driverLocation.longitude)
+                                            driverLocationAnnotation.title = "Your Driver"
+                                            self.map.addAnnotation(driverLocationAnnotation)
+                                        }
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            })
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

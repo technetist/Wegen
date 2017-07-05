@@ -19,6 +19,7 @@ class RiderLocationViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var btnAcceptRequest: UIButton!
     @IBAction func btnAcceptRequestPressed(_ sender: Any) {
         let query = PFQuery(className: "RiderRequest")
+        
         query.whereKey("username", equalTo: requestUsername)
         query.findObjectsInBackground { (objects, error) in
             if error != nil {

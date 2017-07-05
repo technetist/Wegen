@@ -50,8 +50,30 @@ class DriverViewController: UITableViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location?.coordinate {
-            let query = PFQuery(className: "RiderRequest")
             userLocation = location
+            
+            let driverLocationQuery = PFQuery(className: "DriverLocation")
+            driverLocationQuery.whereKey("username", equalTo: (PFUser.current()?.username)!)
+            driverLocationQuery.findObjectsInBackground(block: { (objects, error) in
+                if error != nil {
+                    print(error!)
+                } else if let driverLocations = objects {
+                    
+                    for driverLocation in driverLocations {
+                        driverLocation["location"] = PFGeoPoint(latitude: self.userLocation.latitude, longitude: self.userLocation.longitude)
+                        driverLocation.deleteInBackground()
+                    }
+                    
+                }
+                
+                let driverLocation = PFObject(className: "DriverLocation")
+                driverLocation["username"] = PFUser.current()?.username
+                driverLocation["location"] = PFGeoPoint(latitude: self.userLocation.latitude, longitude: self.userLocation.longitude)
+                driverLocation.saveInBackground()
+            })
+            
+            let query = PFQuery(className: "RiderRequest")
+            
             query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: location.latitude, longitude: location.longitude))
             query.limit = 10
             query.findObjectsInBackground(block: { (objects, error) in
